@@ -1,0 +1,122 @@
+
+<html lang="en" dir="ltr" data-cast-api-enabled="true">
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noindex">
+    <title>Plyr</title>
+    <link rel="stylesheet" href="https://docs.google.com/uc?export=download&id=1tNP-3PS50kG24co0zjK4hOCjtH7WCgyG">
+    <style type="text/css" media="all">
+    
+                 #player{
+            
+                    widows:100%;
+                    height:100%;
+                    overflow: hidden;
+                
+               
+                
+    
+                }
+
+            
+
+                .logo{
+                    position: absolute;
+                    z-index: 0;
+                    top: -20;
+                    left: 10px;
+
+                   
+                }
+                .logo > img{
+                    width: 100px;
+                }
+
+                .jansen{
+                    position: absolute;
+                 top: -10px;
+                 left: 300px;
+                 color: white;
+                 display: -moz-deck;
+
+                }
+
+                .font100{
+                    font-size: 1.0em;
+                }
+
+                
+
+
+            
+               
+
+            </style>
+
+            
+
+    </head>
+    <body class="plyr">
+    <video height="720" id="player"  preload="none" autobuffer poster="https://tinyurl.com/s3j2z7h" width="1080" source src="https://tinyurl.com/w382wlk"   >
+       
+           
+    <track kind="captions" label="Portugu�s" srclang="pt" src="">
+        
+    </video>
+
+    <div class="logo ">
+        <img src="https://tinyurl.com/wemfyph" alt="">
+    </div>
+
+    <p class="jansen font150">O longa vem dando continuidade às corridas eletrizantes da equipe de amigos liderada por Dominic Toretto.
+        Depois que Brian e Mia se aposentaram, e o resto da equipe foi exonerado, Dom e Letty estão em lua de mel e levam uma vida pacata e completamente normal. <br>
+         Mas a adrenalina do passado volta com tudo quando uma mulher misteriosa <br> 
+        faz com que Dom retorne ao mundo do crime e da velocidade.
+
+
+    </p>
+
+    
+    
+    </body>
+    
+    <script src="//cdn.jsdelivr.net/npm/hls.js@latest" type="8323915ee6b383d2f868c0c1-text/javascript"></script>
+    <script src="https://cdn.plyr.io/3.5.10/plyr.js" crossorigin="anonymous" type="8323915ee6b383d2f868c0c1-text/javascript"></script>
+    <script type="8323915ee6b383d2f868c0c1-text/javascript">
+        document.addEventListener("DOMContentLoaded", function(event) {
+              const controls = ['rewind','play','play-large','fast-forward','progress', 'current-time','duration','mute','volume','download','settings','airplay','pip','fullscreen'],settings= ['captions', 'quality','speed'];
+            var player = new Plyr(document.getElementById('player'), {quality: {default: 1080,options: [1080, 720, 480],forced: true,onChange: null,},controls,settings});
+                player.on('ready', function(event){
+                    var instance = event.detail.plyr;
+    
+                    var hslSource = null;
+                    var sources = instance.media.querySelectorAll('source'), i;
+                    for (i = 0; i < sources.length; ++i) {
+                        if(sources[i].src.indexOf('.m3u8') > -1){
+                            hslSource = sources[i].src;
+                        }
+                    }
+    
+                    if (hslSource !== null && Hls.isSupported()) {
+                        var hls = new Hls();
+                            hls.loadSource(hslSource);
+                            hls.attachMedia(instance.media);
+                            hls.on(Hls.Events.MANIFEST_PARSED,function() {
+                                console.log('MANIFEST_PARSED');
+                            });
+                    }
+                  console.log(player.source);
+                });
+        });
+        
+    
+
+    </script>
+    <script src="https://docs.google.com/uc?export=download&id=1ZWNFeLt5755SZ0_sa0f9ueH_ayqu32-x" data-cf-settings="8323915ee6b383d2f868c0c1-|49" defer=""></script>
+    
+
+    
+    
+    
+    </html>
+    
